@@ -25,10 +25,13 @@ It's inspiration came from [BTrace](http://kenai.com/projects/btrace), but more 
     - arguments
     - result or exception
 - Output invocation stack trace
-- Auto-completion
+- Display object field value
+- Display enviroment variable
+- Auto-completion by typing `Tab`
+- navigate command history by up and down, and support `Ctrl + R` for searching
 - Awesome features you can provide by forking me
 
-[Test cases](src/test/scala/com/github/zhongl/housemd) would show more specification details.
+[Test cases](https://github.com/zhongl/HouseMD/blob/master/src/test/scala/com/github/zhongl/housemd) would show more specification details.
 
 # Getting started
 
@@ -55,7 +58,7 @@ It's inspiration came from [BTrace](http://kenai.com/projects/btrace), but more 
 
 First all, type:
 
-    > housemd -h
+    > ./housemd -h
 
 A help infomation shows up like:
 
@@ -74,7 +77,7 @@ A help infomation shows up like:
 
 Suppost your target pid is `1234` (you can use `jps` or `ps` get it), and then input:
 
-    > housemd 1234
+    > ./housemd 1234
 
 After seen prompt `housemd>`, input `help` then you get help infomation like this:
 
@@ -84,6 +87,8 @@ After seen prompt `housemd>`, input `help` then you get help infomation like thi
     help      display this infomation.
     trace     display or output infomation of method invocaton.
     loaded    display loaded classes information.
+    env        display system env.
+    inspect    display fields of a class.
 
 You can also input `help loaded` and get help infomation of `loaded` as blow:
 
@@ -97,21 +102,8 @@ You can also input `help loaded` and get help infomation of `loaded` as blow:
         name
             class name without package name.
 
-# Trace schemas
+# More about commands
 
-## Summary statistics
-
-    | method full name         | class loader                            | invoked |  avg elapse|  this object|
-    TraceTarget.addOne(int)    sun.misc.Launcher$AppClassLoader@1cde100          2          34ms   null
-
-
-## Detail line
-
-    | date     | time   | elapse | thread name |     this object      | method full name  | arguemnt(s) |result or exception
-    2012-06-13 07:59:33 1ms      [main]        TraceTarget$B@1137d4a4 TraceTarget$B.mC    [123]         void
-
-- The delimiter is one `white space`,
-- method full name contains: package, class name and method name
-
+[Click here](https://github.com/zhongl/housemd/wiki/usecases) to see the use cases.
 
 Having fun!

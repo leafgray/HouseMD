@@ -14,13 +14,14 @@
  *  limitations under the License.
  */
 
-package com.github.zhongl.test
+package com.github.zhongl.housemd.instrument
 
-/**
- * @author <a href="mailto:zhong.lunfu@gmail.com">zhongl<a>
- */
+trait Hook {
+  def enterWith(context: Context)
 
-class A {
-  def m() {}
+  def exitWith(context: Context)
+
+  def heartbeat(now: Long)
+
+  def finalize(throwable: Option[Throwable])
 }
-

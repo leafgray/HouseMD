@@ -14,13 +14,17 @@
  *  limitations under the License.
  */
 
-package com.github.zhongl.test
+package com.github.zhongl.housemd.command
+
+import com.github.zhongl.housemd.instrument.Advice
 
 /**
  * @author <a href="mailto:zhong.lunfu@gmail.com">zhongl<a>
  */
+trait AdviceReflection {
 
-class A {
-  def m() {}
+  def invoke(c: String, m: String, d: String, i: AnyRef, a: Array[AnyRef], r: AnyRef) {
+    Advice.onMethodBegin(c, m, d, i, a)
+    Advice.onMethodEnd(r)
+  }
 }
-
